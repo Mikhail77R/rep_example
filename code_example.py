@@ -1,3 +1,5 @@
+import json
+from datetime import datetime
 
 class Book:
     def __init__(self, name, author, year):
@@ -13,7 +15,7 @@ class Book:
         # Если год представлен строкой:
         elif isinstance(self.year, str):
             converted_date_obj = datetime.strptime(self.year, "%Y")
-
+            return 'Не работает строками'
         # Преобразование года в две цифры с учётом того, что года ранее 1900 не поддерживаются функцией strftime:
         converted_date_obj = converted_date_obj.replace(
             year=converted_date_obj.year + 1900)
